@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Login Contract</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <div class="container-fluid">
+    <div id="top-page">
+      <div class="title-text">
+          <h2>Donathereum</h2>
+          <p>Donate and get NFT</p>
+          <input type="text" id="newName" placeholder="名前を記入して下さい。">
+          <button type="button" name="button" class="btn btn-primary" id="registerName">名前の登録</button>
+          <a class="btn btn-primary" href="#donate">登録済み</a>
+      </div>
+    </div>
+
+    <div id="donate" class="mt-3">
+        <div class="donation row">
+            <div class="col-md-8">
+                <img src="images/yuraonsen.jpg" alt="山形写真">
+            </div>
+            <div class="col-md-4">
+                <div class="donationTitle">
+                    新潟・山形地震
+                </div>
+                <div class="donateInfo">
+                    <label for="">募金額：</label>
+                    <input type="text" id="ether" value=""> Ether
+                    <br>
+                    <button id="donateButton" class="btn btn-primary" type="button" name="button">募金</button>
+                </div>
+                <div class="ranking">
+                    <ul id="ranking">
+                        <li>第一位: <span id="firstRank"></span></li>
+                        <li>第二位: <span id="secondRank"></span></li>
+                        <li>第三位: <span id="thirdRank"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="status">
+        <div class="row">
+            <div class="col-md-6 borders" id="ownedTokenList">
+                
+            </div>
+            <div class="col-md-6">
+                <ul id="donaterStatus">
+                    <li>名前：</li>
+                    <li>保持NFT数：</li>
+                    <li>総募金：</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+  </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
