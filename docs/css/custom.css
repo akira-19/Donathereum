@@ -1,0 +1,93 @@
+/* General */
+body{
+    font-family:"Book Antiqua", 'Georgia';
+}
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* top page */
+.container-fluid{
+  margin: 0px;
+  padding: 0px;
+}
+
+#top-page{
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+/* background: black url("../images/background.jpg") no-repeat fixed center; */
+
+
+.title-text{
+    width: 100%;
+}
+.title-text h2{
+    font-weight: bold;
+    font-family: "sanserif";
+}
+
+.topText{
+    padding-top: 10px;
+    padding-left: 100px;
+    padding-right: 50px;
+    width: 100%;
+
+}
+.topText p{
+    margin: 8px;
+}
+
+/* donate */
+#donate{
+    background-color: rgb(219, 224, 222);
+    height: 100vh;
+}
+
+.donation{
+    width: 90%;
+    height: 500px;
+    margin: auto;
+    border-radius: 5px;
+    border: 1px solid rgb(170, 170, 170);
+    background-color: white;
+    filter: drop-shadow(6px 6px 6px rgba(0,0,0,0.5));
+}
+
+
+#donate img{
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.donationTitle{
+    height: 15%;
+    padding-top: 15px;
+    font-size: 40px;
+}
+
+.donateInfo{
+    height: 25%;
+    padding-top: 15px;
+}
+
+.ranking{
+    height: 60%;
+}
+
+/* status */
+#status{
+    width: 100vw;
+
+}
+
+.borders{
+    border: 2px solid red;
+}
