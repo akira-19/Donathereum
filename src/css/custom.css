@@ -85,9 +85,18 @@ body{
 /* status */
 #status{
     width: 100vw;
-
 }
 
 .borders{
     border: 2px solid red;
+}
+
+.tokenDiv{
+    width: 150px;
+    height: auto;
+    display: inline-block;
+}
+
+.tokenImage{
+
 }

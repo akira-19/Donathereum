@@ -91,21 +91,21 @@ contract Donathereum is ERC721Full, Ownable{
         uint numberOfDrawal = _donationAmount / 0.1 ether;
         for (uint i = 0; i < numberOfDrawal; i++){
             uint randomNum = random(i);
-            if (randomNum == 1){
+            if (randomNum == 1 && checkOwnedToken(randomNum, _donater)){
                 incrementNum[token1] += 1;
                 uint donationTokenId = uint(token1 + incrementNum[token1]);
                 _mint(_donater, donationTokenId);
                 string memory uri = "https://example.com";
                 _setTokenURI(donationTokenId, uri);
                 donaterInfo[_donater].ownedToken.push(donationTokenId);
-            }else if (randomNum == 2){
+            }else if (randomNum == 2 && checkOwnedToken(randomNum, _donater)){
                 incrementNum[token2] += 1;
                 uint donationTokenId = uint(token2 + incrementNum[token2]);
                 _mint(_donater, donationTokenId);
                 string memory uri = "https://example.com";
                 _setTokenURI(donationTokenId, uri);
                 donaterInfo[_donater].ownedToken.push(donationTokenId);
-            }else if (randomNum == 3){
+            }else if (randomNum == 3 && checkOwnedToken(randomNum, _donater)){
                 incrementNum[token3] += 1;
                 uint donationTokenId = uint(token3 + incrementNum[token3]);
                 _mint(_donater, donationTokenId);
@@ -139,5 +139,17 @@ contract Donathereum is ERC721Full, Ownable{
     function getBalance()public view returns (uint) {
         return balanceOf(msg.sender);
     }
+
+    function checkOwnedToken(uint _num, address _donater)public view returns (bool) {
+       bool ownToken = true;
+       uint32 tokenBeginning = uint32(_num * (10 ** 8) + 1 );
+       uint32 tokenEnd = uint32(_num * (10 ** 8)) + incrementNum[uint32(_num * (10 ** 8))];
+       for(uint32 i = tokenBeginning; i <= tokenEnd; i++){
+           if (ownerOf(i) == _donater){
+               ownToken = false;
+           }
+       }
+       return ownToken;
+   }
 
 }

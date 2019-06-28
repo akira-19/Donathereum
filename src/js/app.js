@@ -67,26 +67,29 @@ App = {
 
   showOwnedTokens: async function(){
       const tokenInfo = await App.getOwnedTokens();
-      const tokenAmount = tokenInfo.length;
-      const rowNumber = tokenAmount % 3;
-      const ownedTokenList = $("#ownedTokenList");
-
-      for (var i = 0; i < rowNumber; i++) {
-          ownedTokenList.append(
-              "<div class='row borders'>"
-              +"<div class='col-md-4 borders'>"
-              +"<img src='/' alt='token'>"
-              +"</div>"
-              +"<div class='col-md-4 borders'>"
-              +"<img src='/' alt='token'>"
-              +" </div>"
-              +"<div class='col-md-4 borders'>"
-              +"<img src='/' alt='token'>"
-              +"</div>"
-              +"</div>"
+      // const tokenAmount = tokenInfo.length;
+      // const rowNumber = tokenAmount / 3;
+      // const ownedTokenList = $("#ownedTokenList");
+      // for (var i = 0; i < rowNumber; i++) {
+      //     ownedTokenList.append(
+      //         "<div class='row borders'>"
+      //         +"<div class='col-md-4 borders'>"
+      //         +"<img src='/' alt='token'>"
+      //         +"</div>"
+      //         +"<div class='col-md-4 borders'>"
+      //         +"<img src='/' alt='token'>"
+      //         +" </div>"
+      //         +"<div class='col-md-4 borders'>"
+      //         +"<img src='/' alt='token'>"
+      //         +"</div>"
+      //         +"</div>"
+      //     );
+      // }
+      for (var i = 0; i < tokenInfo.length; i++) {
+          $("#ownedTokenList").append(
+              "<div class='tokenDiv'><img src='/' alt='token' class='tokenImage'></div>"
           );
       }
-
   },
 
   registerName: async function(){
