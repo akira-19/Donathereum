@@ -19,13 +19,16 @@ body{
     padding: 0px;
     height: 100vh;
     width: 100%;
-    background-color: black;
+    background: black url("../images/toppage.jpg") no-repeat fixed center;
 }
-/* background: black url("../images/background.jpg") no-repeat fixed center; */
+
 
 
 .title-text{
     width: 100%;
+    color: white;
+    padding-left: 20px;
+    padding-top: 15px;
 }
 .title-text h2{
     font-weight: bold;
@@ -47,11 +50,12 @@ body{
 #donate{
     background-color: rgb(219, 224, 222);
     height: 100vh;
+    padding-top: 50px;
 }
 
 .donation{
     width: 90%;
-    height: 500px;
+    height: 550px;
     margin: auto;
     border-radius: 5px;
     border: 1px solid rgb(170, 170, 170);
@@ -59,12 +63,16 @@ body{
     filter: drop-shadow(6px 6px 6px rgba(0,0,0,0.5));
 }
 
+#donateButton{
+    width: 300px;
+}
+
 
 #donate img{
-    width: auto;
+    width: 100%;
     height: auto;
-    max-width: 90%;
-    max-height: 90%;
+    margin: auto;
+    margin-top: 10px;
 }
 
 .donationTitle{
@@ -82,10 +90,17 @@ body{
     height: 60%;
 }
 
+#ranking li{
+    list-style: none;
+}
+
 /* status */
 #status{
     width: 100vw;
+    padding-left: 20px;
+    padding-top: 25px;
 }
+
 
 .borders{
     border: 2px solid red;
@@ -99,4 +114,8 @@ body{
 
 .tokenImage{
 
+}
+
+#donaterStatus li{
+    list-style: none;
 }

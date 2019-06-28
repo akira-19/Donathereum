@@ -67,27 +67,11 @@ App = {
 
   showOwnedTokens: async function(){
       const tokenInfo = await App.getOwnedTokens();
-      // const tokenAmount = tokenInfo.length;
-      // const rowNumber = tokenAmount / 3;
-      // const ownedTokenList = $("#ownedTokenList");
-      // for (var i = 0; i < rowNumber; i++) {
-      //     ownedTokenList.append(
-      //         "<div class='row borders'>"
-      //         +"<div class='col-md-4 borders'>"
-      //         +"<img src='/' alt='token'>"
-      //         +"</div>"
-      //         +"<div class='col-md-4 borders'>"
-      //         +"<img src='/' alt='token'>"
-      //         +" </div>"
-      //         +"<div class='col-md-4 borders'>"
-      //         +"<img src='/' alt='token'>"
-      //         +"</div>"
-      //         +"</div>"
-      //     );
-      // }
+      const instance = await App.contracts.Donathereum.deployed();
       for (var i = 0; i < tokenInfo.length; i++) {
+          const tokenURI = await instance.tokenURI(tokenInfo[i]);
           $("#ownedTokenList").append(
-              "<div class='tokenDiv'><img src='/' alt='token' class='tokenImage'></div>"
+              "<div class='tokenDiv'><img src='" + tokenURI + "' alt='token' class='tokenImage'></div>"
           );
       }
   },
@@ -104,9 +88,9 @@ App = {
   getContributer: async function(){
       const instance = await App.contracts.Donathereum.deployed();
       const contributers = await instance.getContributer();
-      $("#ranking li:nth-child(1) span").append(contributers[0]);
-      $("#ranking li:nth-child(2) span").append(contributers[1]);
-      $("#ranking li:nth-child(3) span").append(contributers[2]);
+      $("#ranking li:nth-child(1) span").append(contributers[0] + "　様");
+      $("#ranking li:nth-child(2) span").append(contributers[1] + "　様");
+      $("#ranking li:nth-child(3) span").append(contributers[2] + "　様");
   },
 
   getDonaterInformation: async function(){
@@ -114,9 +98,9 @@ App = {
       const name = await instance.getDonaterName();
       const balance = await instance.getBalance();
       const donateAmount = await instance.getDonaterInfo();
-      $("#donaterStatus li:nth-child(1)").text("名前：" + name);
-      $("#donaterStatus li:nth-child(2)").text("保持NFT数：" + balance);
-      $("#donaterStatus li:nth-child(3)").text("総募金：" + web3.fromWei(donateAmount, 'ether'));
+      $("#donaterStatus li:nth-child(1)").html("<b>名前：</b>" + name);
+      $("#donaterStatus li:nth-child(2)").html("<b>保持トークン数：</b>" + balance);
+      $("#donaterStatus li:nth-child(3)").html("<b>総募金：</b>" + web3.fromWei(donateAmount, 'ether') + "<b> Ether</b>");
 
   }
 

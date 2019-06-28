@@ -24,7 +24,7 @@
     <div id="top-page">
       <div class="title-text">
           <h2>Donathereum</h2>
-          <p>Donate and get NFT</p>
+          <p>募金してNFTをゲットしよう！</p>
           <input type="text" id="newName" placeholder="名前を記入して下さい。">
           <button type="button" name="button" class="btn btn-primary" id="registerName">名前の登録</button>
           <a class="btn btn-primary" href="#donate">登録済み</a>
@@ -40,17 +40,19 @@
                 <div class="donationTitle">
                     新潟・山形地震
                 </div>
+                <p>2019年6月18日に発生した地震により被害を受けた方々への支援をお願いします。</p>
                 <div class="donateInfo">
                     <label for="">募金額：</label>
                     <input type="text" id="ether" value=""> Ether
                     <br>
-                    <button id="donateButton" class="btn btn-primary" type="button" name="button">募金</button>
+                    <button id="donateButton" class="btn btn-primary mt-2" type="button" name="button">募金</button>
                 </div>
                 <div class="ranking">
+                    <h4>募金ランキング</h4>
                     <ul id="ranking">
-                        <li>第一位: <span id="firstRank"></span></li>
-                        <li>第二位: <span id="secondRank"></span></li>
-                        <li>第三位: <span id="thirdRank"></span></li>
+                        <li><b>一位</b>: <span id="firstRank"></span></li>
+                        <li><b>二位</b>: <span id="secondRank"></span></li>
+                        <li><b>三位</b>: <span id="thirdRank"></span></li>
                     </ul>
                 </div>
             </div>
@@ -59,15 +61,16 @@
 
 
     <div id="status">
+        <h4>所持トークン</h4>
         <div class="row">
             <div class="col-md-6 borders" id="ownedTokenList">
-                
+
             </div>
             <div class="col-md-6">
                 <ul id="donaterStatus">
-                    <li>名前：</li>
-                    <li>保持NFT数：</li>
-                    <li>総募金：</li>
+                    <li><b>名前：</b></li>
+                    <li><b>保持トークン数：</b></li>
+                    <li><b>総募金：</b></li>
                 </ul>
             </div>
         </div>

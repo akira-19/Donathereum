@@ -46,6 +46,8 @@ contract Donathereum is ERC721Full, Ownable{
         uint32 donationTokenId;
         donationTokenId = programNum + incrementNum[programNum];
         _mint(msg.sender, donationTokenId);
+        string memory uri = "https://akira-19.github.io/Donathereum/images/donateToken.png";
+        _setTokenURI(donationTokenId, uri);
         donaterInfo[msg.sender].ownedToken.push(donationTokenId);
     }
 
@@ -95,21 +97,21 @@ contract Donathereum is ERC721Full, Ownable{
                 incrementNum[token1] += 1;
                 uint donationTokenId = uint(token1 + incrementNum[token1]);
                 _mint(_donater, donationTokenId);
-                string memory uri = "https://example.com";
+                string memory uri = "https://akira-19.github.io/Donathereum/images/token1.png";
                 _setTokenURI(donationTokenId, uri);
                 donaterInfo[_donater].ownedToken.push(donationTokenId);
             }else if (randomNum == 2 && checkOwnedToken(randomNum, _donater)){
                 incrementNum[token2] += 1;
                 uint donationTokenId = uint(token2 + incrementNum[token2]);
                 _mint(_donater, donationTokenId);
-                string memory uri = "https://example.com";
+                string memory uri = "https://akira-19.github.io/Donathereum/images/token2.png";
                 _setTokenURI(donationTokenId, uri);
                 donaterInfo[_donater].ownedToken.push(donationTokenId);
             }else if (randomNum == 3 && checkOwnedToken(randomNum, _donater)){
                 incrementNum[token3] += 1;
                 uint donationTokenId = uint(token3 + incrementNum[token3]);
                 _mint(_donater, donationTokenId);
-                string memory uri = "https://example.com";
+                string memory uri = "https://akira-19.github.io/Donathereum/images/token3.png";
                 _setTokenURI(donationTokenId, uri);
                 donaterInfo[_donater].ownedToken.push(donationTokenId);
             }
