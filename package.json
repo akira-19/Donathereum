@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "multi-token-standard": "^0.8.0",
-    "openzeppelin-solidity": "^2.3.0"
+    "openzeppelin-solidity": "^2.3.0",
+    "truffle-hdwallet-provider": "^1.0.12"
   }
 }

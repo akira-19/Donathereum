@@ -24,7 +24,7 @@ App = {
   }
   // If no injected web3 instance is detected, fall back to Ganache
   else {
-    App.web3Provider = new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/9eb56a6f6c2d49bf9fa83b8561b99067');
+    App.web3Provider = new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/fd4cad0c51f94ec8a2def0a9c7e638fa');
   }
 
   web3 = new Web3(App.web3Provider);
@@ -70,8 +70,24 @@ App = {
       const instance = await App.contracts.Donathereum.deployed();
       for (var i = 0; i < tokenInfo.length; i++) {
           const tokenURI = await instance.tokenURI(tokenInfo[i]);
+          const tokenId = tokenInfo[i];
+          let tokenName;
+          let tokenDescription;
+          if(tokenId >= 10 ** 6 && tokenId <= 10 ** 6 + 10000){
+              tokenName = "コアラ";
+              tokenDescription = "1度でも募金をするともらえる";
+          }else if(tokenId >= 10 ** 8 && tokenId <= 10 ** 8 + 10000){
+              tokenName = "ヒヨコと子アヒル";
+              tokenDescription = "10%の確率でもらえる";
+          }else if(tokenId >= 2 * (10 ** 8) && tokenId <= 2 * (10 ** 8) + 10000){
+              tokenName = "アヒル";
+              tokenDescription = "10%の確率でもらえる";
+          }else if(tokenId >= 3 * (10 ** 8) && tokenId <= 3 * (10 ** 8) + 10000){
+              tokenName = "さかな";
+              tokenDescription = "10%の確率でもらえる";
+          }
           $("#ownedTokenList").append(
-              "<div class='tokenDiv'><img src='" + tokenURI + "' alt='token' class='tokenImage'></div>"
+              "<div class='tokenDiv'><div class='imgDiv'><img src='" + tokenURI + "' alt='token' class='tokenImage'></div><h4>"+tokenName+"</h4><h5>"+tokenDescription+"</h5></div>"
           );
       }
   },
@@ -100,7 +116,7 @@ App = {
       const donateAmount = await instance.getDonaterInfo();
       $("#donaterStatus li:nth-child(1)").html("<b>名前：</b>" + name);
       $("#donaterStatus li:nth-child(2)").html("<b>保持トークン数：</b>" + balance);
-      $("#donaterStatus li:nth-child(3)").html("<b>総募金：</b>" + web3.fromWei(donateAmount, 'ether') + "<b> Ether</b>");
+      $("#donaterStatus li:nth-child(3)").html("<b>総募金額：</b>" + web3.fromWei(donateAmount, 'ether') + "<b> Ether</b>");
 
   }
 
